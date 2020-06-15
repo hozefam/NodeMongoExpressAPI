@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 const Products = require('../model/Product');
-const Product = require('../model/Product');
 
 router.get('', (req, res, next) => {
   Products.find().then((products) => {
@@ -18,7 +17,7 @@ router.get('/:id', (req, res, next) => {
 
 router.post('', (req, res, next) => {
   const { name, description, color, quantity, cost } = req.body;
-  const product = new Product({ name, description, color, quantity, cost });
+  const product = new Products({ name, description, color, quantity, cost });
   product.save().then(() => {
     res.status(201).json({ message: 'Product added' });
   });
