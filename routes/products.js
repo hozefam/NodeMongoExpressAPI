@@ -29,7 +29,7 @@ router.put('/:id', (req, res, next) => {
     { _id: req.params.id },
     { name, description, color, quantity, cost }
   ).then(() => {
-    res.status(201).json({ message: 'Product updated' });
+    res.status(204).json({ message: 'Product updated' });
   });
 });
 
